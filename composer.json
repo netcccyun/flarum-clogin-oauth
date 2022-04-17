@@ -1,0 +1,42 @@
+{
+  "name": "cccyun/flarum-clogin-oauth",
+  "description": "Allow users to log in with Clogin Oauth",
+  "keywords": [
+    "flarum",
+    "authentication",
+    "QQ",
+    "Wechat",
+    "Weibo"
+  ],
+  "type": "flarum-extension",
+  "license": "MIT",
+  "require": {
+    "flarum/core": "*",
+    "ext-json": "*"
+  },
+  "authors": [
+    {
+      "name": "caihong",
+      "email": "admin@cccyun.cc",
+      "role": "Developer"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Cccyun\\Oauth\\": "src/"
+    }
+  },
+  "extra": {
+    "flarum-extension": {
+      "title": "Clogin Oauth",
+      "icon": {
+        "name": "fas fa-user-check",
+        "backgroundColor": "#b984ff",
+        "color": "#fff"
+      }
+    },
+    "flagrow": {
+      "discuss": ""
+    }
+  }
+}

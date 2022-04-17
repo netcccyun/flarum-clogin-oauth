@@ -1,0 +1,42 @@
+cccyun-clogin-oauth:
+  ##
+  # UNIQUE KEYS - The following keys are used in only one location each.
+  ##
+
+  # Translations in this namespace are used by the admin interface.
+  admin:
+    # These translations are used in the Google Settings modal dialog.
+    appurl_label: 聚合登录接口地址
+    appurl_help: 接口地址必须以http://或https://开头，以/结尾
+    appid_label: APPID
+    appkey_label: APPKEY
+    openqq_label: 开启QQ登录
+    openwx_label: 开启微信登录
+    opensina_label: 开启微博登录
+
+  # Translations in this namespace are used by the forum user interface.
+  forum:
+    # These translations are used in the Log In modal dialog.
+    with_qq_button: QQ 登录
+    with_wx_button: 微信登录
+    with_sina_button: 微博登录
+    alerts:
+      already_linked: 第三方账号已绑定！
+      already_used: 这个第三方账号已被其他用户绑定！
+      link_success: 第三方账号绑定成功！
+      unlink_success: 第三方账号解绑成功！
+      error: 有些地方出了问题，请稍后再试！
+    modals:
+      link_qq: 绑定QQ账号
+      unlink_qq: 解绑QQ账号
+      confirm_qq: 您确定要解绑QQ账号吗？
+      link_wx: 绑定微信账号
+      unlink_wx: 解绑微信账号
+      confirm_wx: 您确定要解绑微信账号吗？
+      link_sina: 绑定微博账号
+      unlink_sina: 解绑微博账号
+      confirm_sina: 您确定要解绑微博账号吗？
+      no_providers: 您没有其他登录手段，请先重置账户密码。
+      buttons:
+        confirm: 是的，我确定
+        cancel: 不，我不确定！
