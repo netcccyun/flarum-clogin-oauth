@@ -4,7 +4,6 @@ namespace Cccyun\Oauth;
 
 use Exception;
 use Flarum\Forum\Auth\Registration;
-use Flarum\Forum\Auth\ResponseFactory;
 use Flarum\Http\UrlGenerator;
 use Flarum\Settings\SettingsRepositoryInterface;
 use Psr\Http\Message\ResponseInterface;

@@ -26,6 +26,7 @@ cccyun-clogin-oauth:
       link_success: Third Account link successful.
       unlink_success: Third Account unlink successful.
       error: Something went wrong, please try again later!
+      unlinked: The Third Account is not bound to the account of this site, please register first and then bind.
     modals:
       link_qq: Link QQ Account
       unlink_qq: Unlink QQ Account

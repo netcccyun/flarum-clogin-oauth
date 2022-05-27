@@ -6,7 +6,7 @@ import Application from './components/Application';
 import UnlinkModal from "./components/UnlinkModal";
 
 import LogInButtons from "flarum/components/LogInButtons";
-import LogInButton from 'flarum/components/LogInButton';
+import LogInButton from './components/LogInButton';
 import Button from 'flarum/components/Button';
 
 import config from '../config';

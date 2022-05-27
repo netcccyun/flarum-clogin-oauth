@@ -26,6 +26,7 @@ cccyun-clogin-oauth:
       link_success: 第三方账号绑定成功！
       unlink_success: 第三方账号解绑成功！
       error: 有些地方出了问题，请稍后再试！
+      unlinked: 该第三方账号未绑定本站账号，请先注册后绑定。
     modals:
       link_qq: 绑定QQ账号
       unlink_qq: 解绑QQ账号

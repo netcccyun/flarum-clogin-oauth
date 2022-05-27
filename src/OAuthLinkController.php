@@ -11,6 +11,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Server\RequestHandlerInterface;
 use Laminas\Diactoros\Response\HtmlResponse;
 use Laminas\Diactoros\Response\RedirectResponse;
+use Symfony\Contracts\Translation\TranslatorInterface;
 use Illuminate\Support\Arr;
 
 class OAuthLinkController implements RequestHandlerInterface
@@ -30,16 +31,19 @@ class OAuthLinkController implements RequestHandlerInterface
      */
     protected $url;
 
+    protected $translator;
+
     /**
      * @param LoginProvider $loginProvider
      * @param SettingsRepositoryInterface $settings
      * @param UrlGenerator $url
      */
-    public function __construct(LoginProvider $loginProvider, SettingsRepositoryInterface $settings, UrlGenerator $url)
+    public function __construct(LoginProvider $loginProvider, SettingsRepositoryInterface $settings, UrlGenerator $url, TranslatorInterface $translator)
     {
         $this->loginProvider = $loginProvider;
         $this->settings = $settings;
         $this->url      = $url;
+        $this->translator = $translator;
     }
 
 
@@ -111,8 +115,27 @@ class OAuthLinkController implements RequestHandlerInterface
 
     private function makeResponse($returnCode = 'done'): HtmlResponse
     {
-        $content = "<script>window.close();window.opener.app.oauth.linkDone('{$returnCode}');</script>";
+        if(preg_match('/Android|SymbianOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Windows Phone|Midp/', $_SERVER['HTTP_USER_AGENT'])){
+            switch($returnCode){
+                case 'already_linked':
+                    $message = $this->translator->trans('cccyun-clogin-oauth.forum.alerts.already_linked');
+                    break;
+                case 'already_used':
+                    $message = $this->translator->trans('cccyun-clogin-oauth.forum.alerts.already_used');
+                    break;
+                case 'done':
+                    $message = $this->translator->trans('cccyun-clogin-oauth.forum.alerts.link_success');
+                    break;
+                case 'error':
+                    $message = $this->translator->trans('cccyun-clogin-oauth.forum.alerts.error');
+                    break;
+            }
+            $content = "<script>alert('{$message}'); window.location.href = '/settings'; window.app.oauth.linkDone('{$returnCode}');</script>";
+        }else{
+            $content = "<script>window.close(); window.opener.app.oauth.linkDone('{$returnCode}');</script>";
+        }
 
         return new HtmlResponse($content);
     }
+
 }
